@@ -40,6 +40,8 @@ header p {
     padding: auto;
     color: #F9F4DA;
     border-radius: 5px;
+    width: 352px;
+    margin-top: 1em;
 }
 
 .game-status h2 {
@@ -52,4 +54,14 @@ header p {
 .game-status p {
     margin: 0;
     font-size: 1rem;
+}
+
+.languages {
+    width: 352px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.5em;
+    gap: 0.5em;
 }

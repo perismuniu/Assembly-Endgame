@@ -1,6 +1,20 @@
-import React from "react"
+import { useState } from "react"
+import { languages } from "./language.js"
+import Language from "./Language.jsx"
 
 export default function AssemblyEndgame() {
+    const [language, setLanguage] = useState(languages)
+
+    const languageElements = language.map((data) => {
+        return (
+            <Language 
+                key={data.name}      
+                name={data.name}
+                backgroundColor={data.backgroundColor}
+                color={data.color}
+            />
+        )
+    })
     return (
         <main>
             <header>
@@ -10,6 +24,9 @@ export default function AssemblyEndgame() {
             <section className="game-status">
                 <h2>You win!</h2>
                 <p>Well done! 🎉</p>
+            </section>
+            <section className="languages">
+                {languageElements}
             </section>
         </main>
     )
