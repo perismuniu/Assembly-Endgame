@@ -23,11 +23,33 @@ header {
 header h1 {
     font-size: 1.25rem;
     color: #F9F4DA;
+    font-weight: 500;
 }
 
 header p {
     font-size: 0.875rem;
     color: #8E8E8E;
     width: fit-content;
-    margin: 0 auto;
+    text-align: center;
+}
+
+.game-status {
+    text-align: center;
+    background-color: #10A95B;
+    height: 59px;
+    padding: auto;
+    color: #F9F4DA;
+    border-radius: 5px;
+}
+
+.game-status h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    padding-top: 0.2em;
+
+}
+
+.game-status p {
+    margin: 0;
+    font-size: 1rem;
 }
