@@ -3,9 +3,10 @@ import { languages } from "./language.js"
 import Language from "./Language.jsx"
 
 export default function AssemblyEndgame() {
-    const [language, setLanguage] = useState(languages)
 
-    const languageElements = language.map((data) => {
+    const [currentWord, setCurrentWord] = useState("re act  ")
+
+    const languageElements = languages.map((data) => {
         return (
             <Language 
                 key={data.name}      
@@ -15,6 +16,13 @@ export default function AssemblyEndgame() {
             />
         )
     })
+
+   const currentWordArray = currentWord.split('').map((letter, index) => {
+        return(
+            <span className="current-word-letter" key={index}>{letter.toUpperCase()}</span>
+        )
+    })
+
     return (
         <main>
             <header>
@@ -27,6 +35,9 @@ export default function AssemblyEndgame() {
             </section>
             <section className="languages">
                 {languageElements}
+            </section>
+            <section className="current-word-section">
+                {currentWordArray}
             </section>
         </main>
     )

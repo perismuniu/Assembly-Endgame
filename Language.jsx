@@ -5,14 +5,14 @@ const Language = (props) => {
     const style = {
         backgroundColor: props.backgroundColor,
         color: props.color,
-        borderRadius: "5px",
-        padding: "7px"
+        borderRadius: "4px",
+        padding: "5px"
     }
   return (
     <div>
-        <button style={style}>
+        <span style={style}>
             {props.name}
-        </button>
+        </span>
     </div>
   )
 }
