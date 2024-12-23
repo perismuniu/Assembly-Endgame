@@ -6,7 +6,7 @@ const Language = (props) => {
         backgroundColor: props.backgroundColor,
         color: props.color,
         borderRadius: "4px",
-        padding: "5px"
+        padding: "4px 8px"
     }
   return (
     <div>
