@@ -111,3 +111,16 @@ header p {
     border-radius: 5px;
     cursor: pointer;
 }
+
+.new-game-btn {
+    background-color: #11B5E5;
+    border: 1px solid #D7D7D7;
+    border-radius: 4px;
+    width: 225px;
+    height: 40px;
+    padding: 6px 12px;
+    display: block;
+    margin-inline: auto;
+    cursor: pointer;
+    margin-top: 12em;
+}
