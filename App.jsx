@@ -4,7 +4,9 @@ import Language from "./Language.jsx"
 
 export default function AssemblyEndgame() {
 
-    const [currentWord, setCurrentWord] = useState("re act  ")
+    const [currentWord, setCurrentWord] = useState("react")
+
+    const alphabet = "abcdefghijklmnopqrstuvwxyz"
 
     const languageElements = languages.map((data) => {
         return (
@@ -23,6 +25,12 @@ export default function AssemblyEndgame() {
         )
     })
 
+    const keyboardElements = alphabet.split('').map((letter, index) => {
+        return (
+            <button key={index} className="keyboard-btns">{letter.toUpperCase()}</button>
+        )
+    })
+
     return (
         <main>
             <header>
@@ -38,6 +46,9 @@ export default function AssemblyEndgame() {
             </section>
             <section className="current-word-section">
                 {currentWordArray}
+            </section>
+            <section className="keyboard">
+                {keyboardElements}
             </section>
         </main>
     )
