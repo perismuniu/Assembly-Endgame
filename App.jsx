@@ -32,7 +32,12 @@ export default function AssemblyEndgame() {
 
    const currentWordArray = currentWord.split('').map((letter, index) => {
         return(
-            <span className="current-word-letter" key={index}>{letter.toUpperCase()}</span>
+            <span 
+                className="current-word-letter" 
+                key={index}
+            >
+                {currentGuessedLetters.includes(letter) ? letter.toUpperCase() : ''}
+            </span>
         )
     })
 
