@@ -1,17 +1,16 @@
 import { useState } from "react"
 import { languages } from "./language.js"
-import Language from "./Language.jsx"
 import clsx from 'clsx'
 
 export default function AssemblyEndgame() {
 
     const [currentWord, setCurrentWord] = useState("react")
-
     const [currentGuessedLetters, setCurrenGuessedLetters] = useState([])
-    console.log(currentGuessedLetters)
-
-      
+    
     const alphabet = "abcdefghijklmnopqrstuvwxyz"
+
+    const wrongGuessCount = currentGuessedLetters.filter(letter => !currentWord.includes(letter)).length
+    console.log(wrongGuessCount)
 
     function handleKeyboardClick(letter) {
         setCurrenGuessedLetters(prevGuessed => 
@@ -19,14 +18,19 @@ export default function AssemblyEndgame() {
         )
     }
 
-    const languageElements = languages.map((data) => {
+    const languageElements = languages.map(lang => {
+        const styles = {
+            backgroundColor: lang.backgroundColor,
+            color: lang.color
+        }
         return (
-            <Language 
-                key={data.name}      
-                name={data.name}
-                backgroundColor={data.backgroundColor}
-                color={data.color}
-            />
+            <span
+                className="chip"
+                style={styles}
+                key={lang.name}
+            >
+                {lang.name}
+            </span>
         )
     })
 
@@ -41,19 +45,38 @@ export default function AssemblyEndgame() {
         )
     })
 
-    const keyboardElements = alphabet.split('').map((letter) => {
-        const isCorrect = currentWord.includes(letter)
+    // const keyboardElements = alphabet.split('').map((letter) => {
+    //     const isCorrect = currentWord.includes(letter)
+    //     const isGuessed = currentGuessedLetters.includes(letter)
+    //     const keyboardStyle = {
+    //         backgroundColor: isGuessed ? (isCorrect ? '#10A95B' : '#EC5D49') : ''
+    //     }
+    //     return (
+    //         <button 
+    //             key={letter} 
+    //             onClick={() => handleKeyboardClick(letter)}
+    //             style={keyboardStyle}
+    //             className={clsx('keyboard-btns',{'button-active': !isGuessed})}
+    //         >
+    //             {letter.toUpperCase()}
+    //         </button>
+    //     )
+    // })
+
+    const keyboardElements = alphabet.split("").map(letter => {
         const isGuessed = currentGuessedLetters.includes(letter)
-        const keyboardStyle = {
-            backgroundColor: isGuessed ? (isCorrect ? '#10A95B' : '#EC5D49') : ''
-        }
+        const isCorrect = isGuessed && currentWord.includes(letter)
+        const isWrong = isGuessed && !currentWord.includes(letter)
+        const className = clsx({
+            correct: isCorrect,
+            wrong: isWrong
+        })
+        
         return (
-            <button 
-                key={letter} 
-                onClick={() => handleKeyboardClick(letter)}
-                style={keyboardStyle}
-                className={clsx('keyboard-btns',{'button-active': !isGuessed})}
-                disable={isGuessed}
+            <button
+                className={className}
+                key={letter}
+                onClick={() => addGuessedLetter(letter)}
             >
                 {letter.toUpperCase()}
             </button>

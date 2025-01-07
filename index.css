@@ -58,18 +58,38 @@ header p {
 }
 
 .languages {
-    width: 352px;
     display: flex;
     flex-wrap: wrap;
+    gap: 5px;
+    justify-content: center;
+    max-width: 350px;
+    margin-bottom: 36px;
+    margin-top: 30px;
+}
+
+.chip {
+    border-radius: 3px;
+    padding: 4.5px;
+    position: relative;
+}
+
+/* Dimmed overlay with skull on "lost" languages */
+.chip.lost::before {
+    content: "💀";
+    position: absolute;
+    display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 2.5em;
-    gap: 1em 0.3em;
-    font-size: 0.75rem;
+    height: 100%;
+    width: 100%;
+    font-size: 0.85rem;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 .current-word-section {
-    margin-top: 2.5em;
+    margin-top: 1em;
     height: 40px; 
     width: 334px;
     display: flex;
@@ -98,11 +118,20 @@ header p {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    margin-top: 9.5em;
+    margin-top: 10.5em;
     max-width: 450px;
+    
 }
 
-.keyboard-btns {
+.keyboard > button.correct {
+    background-color: #10A95B;
+}
+
+.keyboard > button.wrong {
+    background-color: #EC5D49;
+}
+
+.keyboard > button {
     height: 40px;
     width: 40px;
     background-color: #FCBA29;
@@ -122,5 +151,5 @@ header p {
     display: block;
     margin-inline: auto;
     cursor: pointer;
-    margin-top: 14em;
+    margin-top: 13em;
 }
