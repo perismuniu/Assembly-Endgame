@@ -10,7 +10,10 @@ export default function AssemblyEndgame() {
     const alphabet = "abcdefghijklmnopqrstuvwxyz"
 
     const wrongGuessCount = currentGuessedLetters.filter(letter => !currentWord.includes(letter)).length
-    console.log(wrongGuessCount)
+    
+    const isGameWon = currentWord.split('').every(letter => currentGuessedLetters.includes(letter))
+    const isGameLost = wrongGuessCount >= languages.length - 1
+    const isGameover = isGameWon || isGameLost
 
     function handleKeyboardClick(letter) {
         setCurrenGuessedLetters(prevGuessed => 
@@ -90,7 +93,7 @@ export default function AssemblyEndgame() {
             <section className="keyboard">
                 {keyboardElements}
             </section>
-            <button className="new-game-btn">New Game</button>
+            {isGameover && <button className="new-game-btn">New Game</button>}
         </main>
     )
 }
