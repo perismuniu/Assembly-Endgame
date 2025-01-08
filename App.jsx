@@ -81,8 +81,22 @@ export default function AssemblyEndgame() {
                 <p>Guess the word in under 8 attempts to keep the programming world safe from Assembly!</p>
             </header>
             <section className="game-status">
-                <h2>You win!</h2>
-                <p>Well done! 🎉</p>
+                { isGameWon ? 
+                    (
+                        <div className="won-game">
+                            <h2>You win!</h2>
+                            <p>Well done! 🎉</p>
+                        </div>
+                    
+                    )
+                    : isGameLost ? (
+                        <div className="lost-game">
+                            <h2>Game over!</h2>
+                            <p>You lose! Better start learning Assembly 😭</p>
+                        </div>
+                    ) 
+                    : null
+                }
             </section>
             <section className="languages">
                 {languageElements}
