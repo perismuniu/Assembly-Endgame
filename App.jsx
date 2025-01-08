@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { languages } from "./language.js"
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 
 export default function AssemblyEndgame() {
 
@@ -45,24 +45,6 @@ export default function AssemblyEndgame() {
         )
     })
 
-    // const keyboardElements = alphabet.split('').map((letter) => {
-    //     const isCorrect = currentWord.includes(letter)
-    //     const isGuessed = currentGuessedLetters.includes(letter)
-    //     const keyboardStyle = {
-    //         backgroundColor: isGuessed ? (isCorrect ? '#10A95B' : '#EC5D49') : ''
-    //     }
-    //     return (
-    //         <button 
-    //             key={letter} 
-    //             onClick={() => handleKeyboardClick(letter)}
-    //             style={keyboardStyle}
-    //             className={clsx('keyboard-btns',{'button-active': !isGuessed})}
-    //         >
-    //             {letter.toUpperCase()}
-    //         </button>
-    //     )
-    // })
-
     const keyboardElements = alphabet.split("").map(letter => {
         const isGuessed = currentGuessedLetters.includes(letter)
         const isCorrect = isGuessed && currentWord.includes(letter)
@@ -76,7 +58,7 @@ export default function AssemblyEndgame() {
             <button
                 className={className}
                 key={letter}
-                onClick={() => addGuessedLetter(letter)}
+                onClick={() => handleKeyboardClick(letter)}
             >
                 {letter.toUpperCase()}
             </button>

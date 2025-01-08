@@ -109,7 +109,7 @@ header p {
 }
 
 .keyboard {
-    width: 400px;
+    width: 390px;
     display: flex;
     flex-wrap: wrap;    
     justify-content: center;
@@ -118,7 +118,7 @@ header p {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    margin-top: 10.5em;
+    margin-top: 7.5em;
     max-width: 450px;
     
 }
@@ -135,10 +135,10 @@ header p {
     height: 40px;
     width: 40px;
     background-color: #FCBA29;
-    gap: 2em;
     align-items: center; 
     border-radius: 5px;
     cursor: pointer;
+    margin-top: 0.2em;
 }
 
 .new-game-btn {
