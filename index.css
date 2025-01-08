@@ -74,7 +74,7 @@ header p {
 }
 
 /* Dimmed overlay with skull on "lost" languages */
-.chip.lost::before {
+span.chip.lost::before {
     content: "💀";
     position: absolute;
     display: flex;
